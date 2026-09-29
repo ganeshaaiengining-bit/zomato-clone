@@ -1,0 +1,105 @@
+.fz-tracker {
+  background: #fff;
+  border: 1px solid var(--fz-border);
+  border-radius: var(--fz-radius-md);
+  padding: var(--fz-space-4);
+}
+
+.fz-tracker--cancelled {
+  display: grid;
+  gap: 4px;
+  border-color: #f3c6c9;
+  background: var(--fz-red-50);
+  color: var(--fz-red-700);
+}
+
+.fz-tracker ol {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--fz-space-2);
+  margin-bottom: var(--fz-space-3);
+}
+
+.fz-tracker li {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  text-align: center;
+}
+
+.fz-tracker__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--fz-border-strong);
+  background: #fff;
+}
+
+/* connector line */
+.fz-tracker li::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: var(--fz-border);
+}
+
+.fz-tracker li:first-child::before {
+  display: none;
+}
+
+.fz-tracker li.is-done::before,
+.fz-tracker li.is-current::before {
+  background: var(--fz-green);
+}
+
+.fz-tracker__label {
+  font-size: var(--fz-text-xs);
+  color: var(--fz-muted);
+  font-weight: var(--fz-weight-medium);
+}
+
+.fz-tracker li.is-done .fz-tracker__dot,
+.fz-tracker li.is-current .fz-tracker__dot {
+  border-color: var(--fz-green);
+  background: var(--fz-green);
+}
+
+.fz-tracker li.is-current .fz-tracker__dot {
+  box-shadow: 0 0 0 5px rgba(0, 179, 86, 0.18);
+  animation: fz-pulse 1.6s ease-in-out infinite;
+}
+
+.fz-tracker li.is-done .fz-tracker__label,
+.fz-tracker li.is-current .fz-tracker__label {
+  color: var(--fz-ink);
+  font-weight: var(--fz-weight-bold);
+}
+
+@keyframes fz-pulse {
+  50% { box-shadow: 0 0 0 9px rgba(0, 179, 86, 0.08); }
+}
+
+@media (max-width: 560px) {
+  .fz-tracker ol {
+    grid-template-columns: 1fr;
+    gap: var(--fz-space-3);
+  }
+
+  .fz-tracker li {
+    grid-template-columns: 18px 1fr;
+    justify-items: start;
+    align-items: center;
+    text-align: left;
+  }
+
+  .fz-tracker li::before {
+    top: -14px;
+    left: 6px;
+    width: 2px;
+    height: 14px;
+  }
+}

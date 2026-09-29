@@ -1,0 +1,28 @@
+# =============================================================================
+#  Line endings — cross-platform consistency
+#  Windows par CRLF, Linux/Mac par LF. Git repo me LF store karte hain.
+# =============================================================================
+
+# default: text files, LF in repo
+* text=auto eol=lf
+
+# Windows scripts ko CRLF chahiye taaki CMD me sahi chale
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# binary files — kabhi convert nahi karne
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.mp4 binary
+*.webm binary
+*.pdf binary
+*.zip binary

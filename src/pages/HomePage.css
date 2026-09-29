@@ -1,0 +1,126 @@
+/* =============================================================================
+   Home page — hero band + cuisine circles
+   ========================================================================== */
+
+.fz-hero {
+  background: linear-gradient(120deg, #e23744 0%, #b91f2c 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+.fz-hero__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: var(--fz-space-8);
+  min-height: 320px;
+  padding-block: var(--fz-space-12);
+  position: relative;
+}
+
+.fz-hero__copy h1 {
+  color: #fff;
+  font-size: var(--fz-text-3xl);
+  font-weight: var(--fz-weight-black);
+  letter-spacing: -1px;
+  max-width: 14ch;
+}
+
+.fz-hero__copy p {
+  margin-top: var(--fz-space-3);
+  max-width: 52ch;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.fz-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--fz-space-3);
+  margin-top: var(--fz-space-5);
+}
+
+.fz-btn--light-ghost {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.fz-btn--light-ghost:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ---------------- art ---------------- */
+.fz-hero__art {
+  position: relative;
+  height: 240px;
+}
+
+.fz-hero__blob {
+  position: absolute;
+  inset: 10% 5%;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50% 42% 46% 54% / 52% 46% 54% 48%;
+  animation: fz-float 9s ease-in-out infinite;
+}
+
+.fz-hero__emoji {
+  position: absolute;
+  font-size: 74px;
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.28));
+  animation: fz-float 6s ease-in-out infinite;
+}
+
+.fz-hero__emoji--2 { right: 8%; top: 4%; font-size: 58px; animation-delay: 0.8s; }
+.fz-hero__emoji--3 { left: 12%; bottom: 2%; font-size: 52px; animation-delay: 1.6s; }
+
+@keyframes fz-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+/* ---------------- cuisine circles ---------------- */
+.fz-cuisines {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: var(--fz-space-4);
+}
+
+.fz-cuisine {
+  display: grid;
+  justify-items: center;
+  gap: var(--fz-space-2);
+  font-size: var(--fz-text-sm);
+  font-weight: var(--fz-weight-bold);
+  color: var(--fz-text);
+}
+
+.fz-cuisine__img {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  transition: transform var(--fz-transition), box-shadow var(--fz-transition);
+}
+
+.fz-cuisine:hover .fz-cuisine__img {
+  transform: scale(1.07);
+  box-shadow: 0 10px 22px -10px rgba(226, 55, 68, 0.7);
+}
+
+.fz-cuisine:hover {
+  color: var(--fz-red);
+}
+
+@media (max-width: 860px) {
+  .fz-hero__inner {
+    grid-template-columns: 1fr;
+    padding-block: var(--fz-space-10);
+  }
+
+  .fz-hero__art {
+    display: none;
+  }
+
+  .fz-hero__copy h1 {
+    max-width: none;
+  }
+}

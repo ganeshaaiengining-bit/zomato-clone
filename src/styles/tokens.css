@@ -1,0 +1,81 @@
+/* =============================================================================
+   FoodieZone — design tokens
+   Ek jagah se poori app ka look control hota hai (colors, spacing, radius...).
+   Component CSS files in tokens ko use karti hain, kabhi hard-code nahi karti.
+   ========================================================================== */
+
+:root {
+  /* ---- brand ---- */
+  --fz-red: #e23744;
+  --fz-red-600: #d62839;
+  --fz-red-700: #b91f2c;
+  --fz-red-50: #fdf0f0;
+  --fz-yellow: #ffd400;
+  --fz-green: #00b356;
+  --fz-green-50: #e8f8ef;
+  --fz-blue: #3b82f6;
+  --fz-blue-50: #eff6ff;
+
+  /* ---- neutrals ---- */
+  --fz-ink: #1c1c1c;
+  --fz-text: #3c3c3c;
+  --fz-muted: #7b7b7b;
+  --fz-subtle: #a0a0a0;
+  --fz-border: #ebebeb;
+  --fz-border-strong: #dcdcdc;
+  --fz-surface: #ffffff;
+  --fz-surface-alt: #f7f7f7;
+  --fz-overlay: rgba(0, 0, 0, 0.55);
+
+  /* ---- typography ---- */
+  --fz-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --fz-text-xs: 0.6875rem;   /* 11px */
+  --fz-text-sm: 0.8125rem;   /* 13px */
+  --fz-text-md: 0.9375rem;   /* 15px */
+  --fz-text-lg: 1.125rem;    /* 18px */
+  --fz-text-xl: 1.5rem;      /* 24px */
+  --fz-text-2xl: 2rem;       /* 32px */
+  --fz-text-3xl: 2.75rem;    /* 44px */
+  --fz-leading-tight: 1.2;
+  --fz-weight-normal: 400;
+  --fz-weight-medium: 500;
+  --fz-weight-bold: 700;
+  --fz-weight-black: 800;
+
+  /* ---- spacing (4px scale) ---- */
+  --fz-space-1: 0.25rem;
+  --fz-space-2: 0.5rem;
+  --fz-space-3: 0.75rem;
+  --fz-space-4: 1rem;
+  --fz-space-5: 1.25rem;
+  --fz-space-6: 1.5rem;
+  --fz-space-8: 2rem;
+  --fz-space-10: 2.5rem;
+  --fz-space-12: 3rem;
+  --fz-space-16: 4rem;
+
+  /* ---- radius ---- */
+  --fz-radius-sm: 6px;
+  --fz-radius-md: 10px;
+  --fz-radius-lg: 16px;
+  --fz-radius-xl: 24px;
+  --fz-radius-pill: 999px;
+
+  /* ---- shadows ---- */
+  --fz-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --fz-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --fz-shadow-md: 0 6px 20px rgba(0, 0, 0, 0.1);
+  --fz-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.14);
+  --fz-shadow-focus: 0 0 0 3px rgba(226, 55, 68, 0.25);
+
+  /* ---- layout ---- */
+  --fz-container: 1200px;
+  --fz-header-h: 68px;
+  --fz-tabs-h: 48px;
+  --fz-z-header: 100;
+  --fz-z-drawer: 200;
+  --fz-z-toast: 300;
+
+  /* ---- motion ---- */
+  --fz-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+}

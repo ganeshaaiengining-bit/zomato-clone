@@ -1,0 +1,92 @@
+# =============================================================================
+#  FoodieZone — .gitignore
+#  Ye file batati hai git ko kaunse files/folder REPO me NAHI bhejne hain.
+# =============================================================================
+
+# ---------------------------------------------------------------- dependencies
+# node_modules me 800+ MB hote hain — kabhi commit nahi karne (npm i se wapas aa jaate hain)
+node_modules/
+.pnp
+.pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/versions
+.package-lock.json
+
+# ---------------------------------------------------------------- build output
+# npm run build ka output — har build me banta hai, repo me rakhne ki zarurat nahi
+dist/
+dist-ssr/
+build/
+*.local
+.cache/
+.vite/
+.temp/
+
+# ------------------------------------------------------- secrets / env files
+# .env me Firebase API keys hain — BILKUL commit nahi karne!
+# Nayi machine par setup: cp .env.example .env  (ya copy .env.example .env)
+.env
+.env.local
+.env.development.local
+.env.production.local
+.env.*.local
+*.pem
+*-key.json
+serviceAccount*.json
+
+# --------------------------------------------------------------------- firebase
+# CLI ka cache + debug logs
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+firestore-debug.log
+firestore-debug.*.log
+database-debug.log
+pubsub-debug.log
+ui-debug.log
+.runtimeconfig.json
+.cloudfunctions/
+*.log
+
+# --------------------------------------------------------------- cloud storage
+# locally uploaded images / backup
+backups/
+*.zip
+*.tar
+*.tar.gz
+uploads/
+
+# ------------------------------------------------------------------ test/cache
+coverage/
+.nyc_output/
+.vitest/
+test-results/
+playwright-report/
+cypress/screenshots/
+cypress/videos/
+
+# ------------------------------------------------------------------ editor / OS
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ------------------------------------------------------------------- misc
+*.log
+npm-debug.log*
+yarn-error.log*
+.eslintcache
+stats.html
+report.html

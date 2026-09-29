@@ -1,0 +1,331 @@
+/* =============================================================================
+   Restaurant detail page
+   ========================================================================== */
+
+.fz-restaurant {
+  padding-bottom: 90px; /* cart bar ki jagah */
+}
+
+/* ---------------- banner ---------------- */
+.fz-restaurant__banner {
+  position: relative;
+  height: 300px;
+  background: #e4e4e4;
+}
+
+.fz-restaurant__banner-img {
+  height: 100%;
+}
+
+.fz-restaurant__banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent 45%);
+}
+
+.fz-restaurant__back {
+  position: absolute;
+  left: var(--fz-space-5);
+  top: var(--fz-space-5);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--fz-ink);
+  font-size: 20px;
+  font-weight: var(--fz-weight-bold);
+  box-shadow: var(--fz-shadow-sm);
+}
+
+/* ---------------- info ---------------- */
+.fz-restaurant__info {
+  margin-top: -46px;
+  position: relative;
+  z-index: 2;
+}
+
+.fz-restaurant__info > * {
+  background: #fff;
+  border: 1px solid var(--fz-border);
+  border-radius: var(--fz-radius-lg);
+  padding: var(--fz-space-5);
+}
+
+.fz-restaurant__info > * + * {
+  margin-top: var(--fz-space-3);
+}
+
+.fz-restaurant__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--fz-space-4);
+  flex-wrap: wrap;
+}
+
+.fz-restaurant__head h1 {
+  font-size: var(--fz-text-2xl);
+}
+
+.fz-restaurant__badges {
+  display: flex;
+  align-items: center;
+  gap: var(--fz-space-2);
+  flex-wrap: wrap;
+}
+
+.fz-chip--closed {
+  background: var(--fz-red-50);
+  color: var(--fz-red-700);
+  border-color: #f3c6c9;
+  font-weight: var(--fz-weight-bold);
+}
+
+.fz-offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--fz-space-3);
+  background: var(--fz-green-50) !important;
+  border-color: #b7e6cb !important;
+}
+
+.fz-offer__label {
+  color: var(--fz-green);
+  font-weight: var(--fz-weight-black);
+}
+
+.fz-offer code {
+  background: #fff;
+  border: 1px dashed var(--fz-green);
+  color: var(--fz-green);
+  border-radius: var(--fz-radius-sm);
+  padding: 3px 10px;
+  font-weight: var(--fz-weight-bold);
+}
+
+.fz-restaurant__tagline {
+  color: var(--fz-muted) !important;
+}
+
+/* ---------------- menu ---------------- */
+.fz-restaurant__menu {
+  margin-top: var(--fz-space-6);
+}
+
+.fz-menu-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--fz-space-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--fz-space-4);
+}
+
+.fz-menu-search {
+  flex: 1;
+  min-width: 220px;
+  border: 1px solid var(--fz-border-strong);
+  border-radius: var(--fz-radius-pill);
+  padding-inline: var(--fz-space-4);
+  background: #fff;
+}
+
+.fz-menu-search input {
+  width: 100%;
+  border: 0;
+  padding-block: 10px;
+  background: none;
+}
+
+.fz-menu-search input:focus {
+  outline: none;
+}
+
+.fz-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fz-space-2);
+  font-size: var(--fz-text-sm);
+  font-weight: var(--fz-weight-bold);
+  color: var(--fz-text);
+  cursor: pointer;
+}
+
+.fz-switch input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--fz-red);
+}
+
+.fz-cat-nav {
+  position: sticky;
+  top: calc(var(--fz-header-h) + var(--fz-tabs-h));
+  z-index: 10;
+  display: flex;
+  gap: var(--fz-space-4);
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid var(--fz-border);
+  border-radius: var(--fz-radius-pill);
+  padding: var(--fz-space-2) var(--fz-space-4);
+  margin-bottom: var(--fz-space-5);
+  box-shadow: var(--fz-shadow-xs);
+}
+
+.fz-cat-nav a {
+  white-space: nowrap;
+  font-size: var(--fz-text-sm);
+  font-weight: var(--fz-weight-bold);
+  color: var(--fz-muted);
+  padding: 4px 0;
+}
+
+.fz-cat-nav a:hover {
+  color: var(--fz-red);
+}
+
+.fz-cat-nav span {
+  color: var(--fz-subtle);
+  font-weight: var(--fz-weight-normal);
+}
+
+.fz-menu-section {
+  scroll-margin-top: calc(var(--fz-header-h) + var(--fz-tabs-h) + 70px);
+  margin-bottom: var(--fz-space-8);
+}
+
+.fz-menu-section > h2 {
+  font-size: var(--fz-text-lg);
+  margin-bottom: var(--fz-space-2);
+}
+
+/* ---------------- reviews ---------------- */
+.fz-review-form {
+  display: grid;
+  gap: var(--fz-space-3);
+  background: #fff;
+  border: 1px solid var(--fz-border);
+  border-radius: var(--fz-radius-lg);
+  padding: var(--fz-space-4);
+  margin: var(--fz-space-4) 0 var(--fz-space-6);
+  justify-items: start;
+}
+
+.fz-review-form__stars button {
+  border: 0;
+  background: none;
+  font-size: 26px;
+  color: #ddd;
+  padding: 0 2px;
+  line-height: 1;
+}
+
+.fz-review-form__stars button.is-on {
+  color: var(--fz-yellow);
+}
+
+.fz-review-form .fz-textarea {
+  width: 100%;
+}
+
+.fz-reviews {
+  display: grid;
+  gap: var(--fz-space-4);
+  margin-top: var(--fz-space-4);
+}
+
+.fz-review {
+  border-bottom: 1px solid var(--fz-border);
+  padding-bottom: var(--fz-space-4);
+}
+
+.fz-review__head {
+  display: flex;
+  align-items: center;
+  gap: var(--fz-space-3);
+}
+
+.fz-review__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--fz-red);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: var(--fz-weight-bold);
+}
+
+.fz-review__rating {
+  margin-left: auto;
+  font-weight: var(--fz-weight-bold);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fz-review p {
+  margin-top: var(--fz-space-2);
+  color: var(--fz-text);
+}
+
+/* ---------------- sticky cart bar ---------------- */
+.fz-cartbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--fz-z-drawer);
+  background: #fff;
+  border-top: 1px solid var(--fz-border);
+  box-shadow: 0 -8px 24px -18px rgba(0, 0, 0, 0.6);
+}
+
+.fz-cartbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--fz-space-4);
+  padding-block: var(--fz-space-3);
+}
+
+.fz-cartbar__inner > div {
+  display: grid;
+}
+
+.fz-cartbar__right {
+  display: flex !important;
+  align-items: center;
+  gap: var(--fz-space-4);
+}
+
+.fz-cartbar__right strong {
+  font-size: var(--fz-text-lg);
+}
+
+/* ---------------- responsive ---------------- */
+@media (max-width: 720px) {
+  .fz-restaurant__banner {
+    height: 200px;
+  }
+
+  .fz-restaurant__info {
+    margin-top: -30px;
+  }
+
+  .fz-restaurant__info > * {
+    padding: var(--fz-space-4);
+  }
+
+  .fz-cartbar__inner {
+    font-size: var(--fz-text-sm);
+  }
+
+  .fz-cartbar__right strong {
+    display: none;
+  }
+}

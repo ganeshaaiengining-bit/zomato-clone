@@ -1,0 +1,81 @@
+rules_version = '2';
+
+// -----------------------------------------------------------------------------
+// FoodieZone — Firestore security rules
+// Deploy:  firebase deploy --only firestore:rules
+//
+// Admin emails yahan hard-code hain (client SDK me token me custom claim
+// add karna hota hai, jo bina Admin SDK ke nahi hota). Is list ko apni
+// .env ke VITE_ADMIN_EMAILS ke saath sync me rakhein.
+// -----------------------------------------------------------------------------
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn()
+        && request.auth.token.email in [
+             'jion@doe.com',
+             'ganesha.aiengining@gmail.com',
+             'admin@foodiezone.app'
+           ];
+    }
+
+    // -----------------------------------------------------------------
+    // restaurants + nested menu items + reviews
+    // -----------------------------------------------------------------
+    match /restaurants/{restaurantId} {
+      allow read: if true;                       // public: listing & detail
+      allow create, update, delete: if isAdmin();
+
+      // menu items
+      match /items/{itemId} {
+        allow read: if true;
+        allow write: if isAdmin();
+      }
+
+      // reviews: user apna review create/update/delete kar sakta hai
+      match /reviews/{userId} {
+        allow read: if true;
+        allow write: if isAdmin() || isOwner(userId);
+      }
+    }
+
+    // -----------------------------------------------------------------
+    // users (profile + saved addresses)
+    // -----------------------------------------------------------------
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create, update: if isOwner(userId) || isAdmin();
+      allow delete: if isOwner(userId) || isAdmin();
+    }
+
+    // -----------------------------------------------------------------
+    // orders
+    // -----------------------------------------------------------------
+    match /orders/{orderId} {
+      allow read: if isSignedIn()
+        && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      // user sirf address/note badal sakta hai; status/total sirf admin
+      allow update: if isAdmin()
+        || (isSignedIn()
+            && resource.data.userId == request.auth.uid
+            && request.resource.data.diff(resource.data).affectedKeys()
+                 .hasOnly(['address', 'note', 'updatedAt']));
+      allow delete: if isAdmin();
+    }
+
+    // default: baaki sab blocked
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

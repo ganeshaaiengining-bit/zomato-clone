@@ -1,0 +1,47 @@
+rules_version = '2';
+
+// -----------------------------------------------------------------------------
+// FoodieZone — Cloud Storage rules (images: restaurant banner, dish photos)
+// Deploy:  firebase deploy --only storage
+// -----------------------------------------------------------------------------
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email in [
+             'jion@doe.com',
+             'ganesha.aiengining@gmail.com',
+             'admin@foodiezone.app'
+           ];
+    }
+
+    function isImageUnder(limitMb) {
+      return request.resource.size < limitMb * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    // Public images: restaurants/{restaurantId}/... aur dishes/...
+    match /restaurants/{restaurantId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin() && isImageUnder(5);
+    }
+
+    match /dishes/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin() && isImageUnder(3);
+    }
+
+    // User avatars: apni hi image upload / delete
+    match /users/{userId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null
+        && request.auth.uid == userId
+        && isImageUnder(2);
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

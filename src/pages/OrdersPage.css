@@ -1,0 +1,76 @@
+.fz-orders {
+  display: grid;
+  gap: var(--fz-space-4);
+  margin-top: var(--fz-space-5);
+  max-width: 780px;
+}
+
+.fz-order {
+  padding: var(--fz-space-4);
+  display: grid;
+  gap: var(--fz-space-3);
+}
+
+.fz-order__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--fz-space-4);
+  flex-wrap: wrap;
+}
+
+.fz-order__head h2 {
+  font-size: var(--fz-text-lg);
+}
+
+.fz-order__head-right {
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+}
+
+.fz-status {
+  font-size: var(--fz-text-xs);
+  font-weight: var(--fz-weight-bold);
+  border-radius: var(--fz-radius-pill);
+  padding: 3px 10px;
+  background: var(--fz-surface-alt);
+  color: var(--fz-text);
+}
+
+.fz-status--placed { background: var(--fz-blue-50); color: var(--fz-blue); }
+.fz-status--preparing { background: #fff5e5; color: #b45309; }
+.fz-status--out-for-delivery { background: var(--fz-green-50); color: var(--fz-green); }
+.fz-status--delivered { background: var(--fz-green); color: #fff; }
+.fz-status--cancelled { background: var(--fz-red-50); color: var(--fz-red-700); }
+
+.fz-order__toggle {
+  justify-self: start;
+  border: 0;
+  background: none;
+  color: var(--fz-red);
+  font-size: var(--fz-text-sm);
+  font-weight: var(--fz-weight-bold);
+  padding: 0;
+}
+
+.fz-order__details {
+  border-top: 1px dashed var(--fz-border-strong);
+  padding-top: var(--fz-space-3);
+  display: grid;
+  gap: var(--fz-space-3);
+  justify-items: start;
+}
+
+.fz-order__details ul {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+
+.fz-order__details li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--fz-space-3);
+  font-size: var(--fz-text-sm);
+}

@@ -1,0 +1,313 @@
+/* Header — brand row + search + cart/user, neeche nav tabs */
+
+.fz-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--fz-z-header);
+  background: #fff;
+  box-shadow: 0 1px 0 var(--fz-border);
+}
+
+/* ---------------- demo strip ---------------- */
+.fz-demo-strip {
+  background: #1c1c1c;
+  color: #fff;
+  text-align: center;
+  font-size: var(--fz-text-xs);
+  padding: 5px 12px;
+}
+
+.fz-demo-strip a {
+  color: var(--fz-yellow);
+  font-weight: var(--fz-weight-bold);
+  text-decoration: underline;
+}
+
+/* ---------------- main row ---------------- */
+.fz-header__main {
+  display: flex;
+  align-items: center;
+  gap: var(--fz-space-4);
+  min-height: var(--fz-header-h);
+  padding-block: var(--fz-space-2);
+}
+
+.fz-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.fz-brand__mark {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--fz-radius-md);
+  background: var(--fz-red);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: var(--fz-weight-black);
+  box-shadow: 0 4px 12px -4px rgba(226, 55, 68, 0.7);
+}
+
+.fz-brand__text {
+  font-size: 1.3rem;
+  color: var(--fz-red);
+  letter-spacing: -0.3px;
+}
+
+.fz-brand__text strong {
+  color: var(--fz-ink);
+}
+
+/* ---------------- location ---------------- */
+.fz-location {
+  flex: 0 0 auto;
+  display: grid;
+  text-align: left;
+  border: 0;
+  background: none;
+  padding: 0 var(--fz-space-3);
+  border-left: 1px solid var(--fz-border);
+}
+
+.fz-location__label {
+  font-size: var(--fz-text-xs);
+  color: var(--fz-red);
+  font-weight: var(--fz-weight-bold);
+}
+
+.fz-location__value {
+  font-size: var(--fz-text-md);
+  color: var(--fz-text);
+  font-weight: var(--fz-weight-medium);
+  white-space: nowrap;
+}
+
+/* ---------------- search ---------------- */
+.fz-search {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--fz-space-2);
+  background: var(--fz-surface-alt);
+  border: 1px solid var(--fz-border);
+  border-radius: var(--fz-radius-pill);
+  padding: 4px 4px 4px var(--fz-space-4);
+  transition: border-color var(--fz-transition), background var(--fz-transition);
+}
+
+.fz-search:focus-within {
+  border-color: var(--fz-red);
+  background: #fff;
+}
+
+.fz-search input {
+  flex: 1;
+  border: 0;
+  background: none;
+  padding-block: 8px;
+  font-size: var(--fz-text-md);
+}
+
+.fz-search input:focus {
+  outline: none;
+}
+
+.fz-search .fz-btn {
+  border-radius: var(--fz-radius-pill);
+  padding: 0.5rem 1.1rem;
+}
+
+/* ---------------- actions ---------------- */
+.fz-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--fz-space-2);
+  flex: 0 0 auto;
+}
+
+.fz-cart-btn {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--fz-red-50);
+  color: var(--fz-red);
+}
+
+.fz-cart-btn:hover {
+  background: #fbe3e4;
+}
+
+.fz-cart-btn__count {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 20px;
+  height: 20px;
+  padding-inline: 5px;
+  border-radius: var(--fz-radius-pill);
+  background: var(--fz-green);
+  color: #fff;
+  font-size: var(--fz-text-xs);
+  font-weight: var(--fz-weight-bold);
+  display: grid;
+  place-items: center;
+}
+
+/* ---------------- user menu ---------------- */
+.fz-user {
+  position: relative;
+}
+
+.fz-user__trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--fz-border-strong);
+  background: #fff;
+  border-radius: var(--fz-radius-pill);
+  padding: 4px 12px 4px 4px;
+  font-weight: var(--fz-weight-bold);
+  color: var(--fz-red);
+}
+
+.fz-user__trigger:hover {
+  border-color: var(--fz-red);
+}
+
+.fz-user__avatar,
+.fz-user__trigger img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--fz-red);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: var(--fz-weight-bold);
+}
+
+.fz-user__name {
+  color: var(--fz-ink);
+}
+
+.fz-user__menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid var(--fz-border);
+  border-radius: var(--fz-radius-md);
+  box-shadow: var(--fz-shadow-lg);
+  padding: var(--fz-space-2);
+  display: grid;
+  z-index: var(--fz-z-drawer);
+}
+
+.fz-user__email {
+  padding: 6px 10px 8px;
+  font-size: var(--fz-text-xs);
+  color: var(--fz-muted);
+  border-bottom: 1px solid var(--fz-border);
+  margin-bottom: 4px;
+  word-break: break-all;
+}
+
+.fz-user__menu a,
+.fz-user__menu button {
+  text-align: left;
+  padding: 9px 10px;
+  border: 0;
+  background: none;
+  border-radius: var(--fz-radius-sm);
+  font-size: var(--fz-text-md);
+  color: var(--fz-text);
+}
+
+.fz-user__menu a:hover,
+.fz-user__menu button:hover {
+  background: var(--fz-surface-alt);
+  color: var(--fz-red);
+}
+
+/* ---------------- nav tabs ---------------- */
+.fz-tabs {
+  border-top: 1px solid var(--fz-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.fz-tabs__inner {
+  display: flex;
+  gap: var(--fz-space-6);
+  overflow-x: auto;
+}
+
+.fz-tabs a {
+  position: relative;
+  padding: var(--fz-space-3) 2px;
+  font-size: var(--fz-text-md);
+  color: var(--fz-muted);
+  font-weight: var(--fz-weight-medium);
+  white-space: nowrap;
+}
+
+.fz-tabs a:hover {
+  color: var(--fz-red);
+}
+
+.fz-tabs a.is-active {
+  color: var(--fz-red);
+  font-weight: var(--fz-weight-bold);
+}
+
+.fz-tabs a.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--fz-red);
+  border-radius: 3px 3px 0 0;
+}
+
+/* ---------------- responsive ---------------- */
+@media (max-width: 980px) {
+  .fz-location {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .fz-header__main {
+    flex-wrap: wrap;
+    gap: var(--fz-space-2);
+  }
+
+  .fz-search {
+    order: 3;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .fz-search .fz-btn span {
+    display: none;
+  }
+
+  .fz-user__name {
+    display: none;
+  }
+
+  .fz-tabs__inner {
+    gap: var(--fz-space-4);
+  }
+}

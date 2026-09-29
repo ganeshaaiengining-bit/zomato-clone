@@ -1,0 +1,124 @@
+.fz-checkout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--fz-space-5);
+  align-items: start;
+  margin-top: var(--fz-space-5);
+}
+
+.fz-checkout__main {
+  display: grid;
+  gap: var(--fz-space-4);
+}
+
+.fz-checkout__card {
+  padding: var(--fz-space-5);
+}
+
+.fz-checkout__card h2 {
+  font-size: var(--fz-text-lg);
+  margin-bottom: var(--fz-space-4);
+}
+
+/* ---------------- form grid ---------------- */
+.fz-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--fz-space-4);
+}
+
+.fz-field--full {
+  grid-column: 1 / -1;
+}
+
+.fz-error {
+  display: block;
+  margin-top: 4px;
+  color: var(--fz-red);
+  font-size: var(--fz-text-xs);
+}
+
+/* ---------------- saved addresses ---------------- */
+.fz-saved-addresses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--fz-space-3);
+  margin-bottom: var(--fz-space-4);
+}
+
+.fz-saved-address {
+  text-align: left;
+  border: 1px solid var(--fz-border-strong);
+  border-radius: var(--fz-radius-md);
+  background: #fff;
+  padding: var(--fz-space-3);
+  display: grid;
+  gap: 4px;
+}
+
+.fz-saved-address span {
+  font-size: var(--fz-text-xs);
+  color: var(--fz-muted);
+}
+
+.fz-saved-address:hover {
+  border-color: var(--fz-red);
+}
+
+.fz-saved-address.is-active {
+  border-color: var(--fz-red);
+  background: var(--fz-red-50);
+}
+
+/* ---------------- payment ---------------- */
+.fz-payment-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--fz-space-3);
+}
+
+.fz-payment {
+  display: flex;
+  align-items: center;
+  gap: var(--fz-space-2);
+  border: 1px solid var(--fz-border-strong);
+  border-radius: var(--fz-radius-md);
+  padding: var(--fz-space-3);
+  font-weight: var(--fz-weight-medium);
+  cursor: pointer;
+}
+
+.fz-payment input {
+  accent-color: var(--fz-red);
+}
+
+.fz-payment.is-active {
+  border-color: var(--fz-red);
+  background: var(--fz-red-50);
+}
+
+/* ---------------- order summary ---------------- */
+.fz-order-items {
+  display: grid;
+  gap: var(--fz-space-2);
+  margin-top: var(--fz-space-3);
+}
+
+.fz-order-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--fz-space-3);
+  font-size: var(--fz-text-sm);
+}
+
+@media (max-width: 900px) {
+  .fz-checkout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .fz-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
